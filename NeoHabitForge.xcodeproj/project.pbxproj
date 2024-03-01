@@ -7,23 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F51FB0042B90B84800507ED1 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51FB0032B90B84800507ED1 /* HabitsViewController.swift */; };
+		F52843A52B8F90CF005CC7EF /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52843A42B8F90CF005CC7EF /* GoalsViewController.swift */; };
 		F5B256332B8DF70800324D3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B256322B8DF70800324D3F /* AppDelegate.swift */; };
 		F5B256352B8DF70800324D3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B256342B8DF70800324D3F /* SceneDelegate.swift */; };
-		F5B256372B8DF70800324D3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B256362B8DF70800324D3F /* ViewController.swift */; };
-		F5B2563A2B8DF70800324D3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B256382B8DF70800324D3F /* Main.storyboard */; };
 		F5B2563C2B8DF70A00324D3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B2563B2B8DF70A00324D3F /* Assets.xcassets */; };
-		F5B2563F2B8DF70A00324D3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B2563D2B8DF70A00324D3F /* LaunchScreen.storyboard */; };
+		F5B2564A2B8E16F400324D3F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B256492B8E16F400324D3F /* OnboardingViewController.swift */; };
+		F5B256552B8E18B700324D3F /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B2564C2B8E18B700324D3F /* Ubuntu-Italic.ttf */; };
+		F5B256562B8E18B700324D3F /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B2564D2B8E18B700324D3F /* Ubuntu-Light.ttf */; };
+		F5B256572B8E18B700324D3F /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B2564E2B8E18B700324D3F /* Ubuntu-Regular.ttf */; };
+		F5B256582B8E18B700324D3F /* UFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5B2564F2B8E18B700324D3F /* UFL.txt */; };
+		F5B256592B8E18B700324D3F /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B256502B8E18B700324D3F /* Ubuntu-BoldItalic.ttf */; };
+		F5B2565A2B8E18B700324D3F /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B256512B8E18B700324D3F /* Ubuntu-LightItalic.ttf */; };
+		F5B2565B2B8E18B700324D3F /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B256522B8E18B700324D3F /* Ubuntu-Medium.ttf */; };
+		F5B2565C2B8E18B700324D3F /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B256532B8E18B700324D3F /* Ubuntu-Bold.ttf */; };
+		F5B2565D2B8E18B700324D3F /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5B256542B8E18B700324D3F /* Ubuntu-MediumItalic.ttf */; };
+		F5FF3ABB2B8F210300DD2A1D /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3ABA2B8F210300DD2A1D /* PlanViewController.swift */; };
+		F5FF3AC22B8F3D5D00DD2A1D /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3AC12B8F3D5D00DD2A1D /* TimePickerViewController.swift */; };
+		F5FFEE732B90D61300B7B7E7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F5FFEE722B90D61300B7B7E7 /* SnapKit */; };
+		F5FFEE752B90D61300B7B7E7 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F5FFEE742B90D61300B7B7E7 /* SnapKit-Dynamic */; };
+		F5FFEE7C2B90DE2A00B7B7E7 /* PlanLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FFEE7B2B90DE2A00B7B7E7 /* PlanLoadingViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F51FB0062B90D28A00507ED1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		F51FB0032B90B84800507ED1 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
+		F52843A42B8F90CF005CC7EF /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		F5B2562F2B8DF70800324D3F /* NeoHabitForge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoHabitForge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B256322B8DF70800324D3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B256342B8DF70800324D3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F5B256362B8DF70800324D3F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F5B256392B8DF70800324D3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5B2563B2B8DF70A00324D3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F5B2563E2B8DF70A00324D3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5B256402B8DF70A00324D3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5B256492B8E16F400324D3F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		F5B2564C2B8E18B700324D3F /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
+		F5B2564D2B8E18B700324D3F /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
+		F5B2564E2B8E18B700324D3F /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		F5B2564F2B8E18B700324D3F /* UFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UFL.txt; sourceTree = "<group>"; };
+		F5B256502B8E18B700324D3F /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
+		F5B256512B8E18B700324D3F /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
+		F5B256522B8E18B700324D3F /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		F5B256532B8E18B700324D3F /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
+		F5B256542B8E18B700324D3F /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
+		F5FF3ABA2B8F210300DD2A1D /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		F5FF3AC12B8F3D5D00DD2A1D /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
+		F5FFEE7B2B90DE2A00B7B7E7 /* PlanLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanLoadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5FFEE732B90D61300B7B7E7 /* SnapKit in Frameworks */,
+				F5FFEE752B90D61300B7B7E7 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +97,67 @@
 		F5B256312B8DF70800324D3F /* NeoHabitForge */ = {
 			isa = PBXGroup;
 			children = (
-				F5B256322B8DF70800324D3F /* AppDelegate.swift */,
-				F5B256342B8DF70800324D3F /* SceneDelegate.swift */,
-				F5B256362B8DF70800324D3F /* ViewController.swift */,
-				F5B256382B8DF70800324D3F /* Main.storyboard */,
-				F5B2563B2B8DF70A00324D3F /* Assets.xcassets */,
-				F5B2563D2B8DF70A00324D3F /* LaunchScreen.storyboard */,
+				F5B256482B8E16C900324D3F /* Controllers */,
+				F5B256472B8E16BC00324D3F /* Application */,
+				F5B256462B8E16B300324D3F /* Resources */,
 				F5B256402B8DF70A00324D3F /* Info.plist */,
 			);
 			path = NeoHabitForge;
+			sourceTree = "<group>";
+		};
+		F5B256462B8E16B300324D3F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F5B2564B2B8E188000324D3F /* Fonts */,
+				F5B2563B2B8DF70A00324D3F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F5B256472B8E16BC00324D3F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F5B256322B8DF70800324D3F /* AppDelegate.swift */,
+				F5B256342B8DF70800324D3F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F5B256482B8E16C900324D3F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F5FF3AC02B8F3D3400DD2A1D /* PlanViews */,
+				F5B256492B8E16F400324D3F /* OnboardingViewController.swift */,
+				F5FF3ABA2B8F210300DD2A1D /* PlanViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F5B2564B2B8E188000324D3F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F5B256532B8E18B700324D3F /* Ubuntu-Bold.ttf */,
+				F5B256502B8E18B700324D3F /* Ubuntu-BoldItalic.ttf */,
+				F5B2564C2B8E18B700324D3F /* Ubuntu-Italic.ttf */,
+				F5B2564D2B8E18B700324D3F /* Ubuntu-Light.ttf */,
+				F5B256512B8E18B700324D3F /* Ubuntu-LightItalic.ttf */,
+				F5B256522B8E18B700324D3F /* Ubuntu-Medium.ttf */,
+				F5B256542B8E18B700324D3F /* Ubuntu-MediumItalic.ttf */,
+				F5B2564E2B8E18B700324D3F /* Ubuntu-Regular.ttf */,
+				F5B2564F2B8E18B700324D3F /* UFL.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F5FF3AC02B8F3D3400DD2A1D /* PlanViews */ = {
+			isa = PBXGroup;
+			children = (
+				F5FF3AC12B8F3D5D00DD2A1D /* TimePickerViewController.swift */,
+				F52843A42B8F90CF005CC7EF /* GoalsViewController.swift */,
+				F51FB0032B90B84800507ED1 /* HabitsViewController.swift */,
+				F5FFEE7B2B90DE2A00B7B7E7 /* PlanLoadingViewController.swift */,
+			);
+			path = PlanViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,12 +170,17 @@
 				F5B2562B2B8DF70800324D3F /* Sources */,
 				F5B2562C2B8DF70800324D3F /* Frameworks */,
 				F5B2562D2B8DF70800324D3F /* Resources */,
+				F51FB0062B90D28A00507ED1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = NeoHabitForge;
+			packageProductDependencies = (
+				F5FFEE722B90D61300B7B7E7 /* SnapKit */,
+				F5FFEE742B90D61300B7B7E7 /* SnapKit-Dynamic */,
+			);
 			productName = NeoHabitForge;
 			productReference = F5B2562F2B8DF70800324D3F /* NeoHabitForge.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +209,9 @@
 				Base,
 			);
 			mainGroup = F5B256262B8DF70800324D3F;
+			packageReferences = (
+				F5B2565E2B8E19D900324D3F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = F5B256302B8DF70800324D3F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +226,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5B2563F2B8DF70A00324D3F /* LaunchScreen.storyboard in Resources */,
+				F5B256572B8E18B700324D3F /* Ubuntu-Regular.ttf in Resources */,
+				F5B256582B8E18B700324D3F /* UFL.txt in Resources */,
+				F5B2565D2B8E18B700324D3F /* Ubuntu-MediumItalic.ttf in Resources */,
+				F5B256592B8E18B700324D3F /* Ubuntu-BoldItalic.ttf in Resources */,
+				F5B2565A2B8E18B700324D3F /* Ubuntu-LightItalic.ttf in Resources */,
 				F5B2563C2B8DF70A00324D3F /* Assets.xcassets in Resources */,
-				F5B2563A2B8DF70800324D3F /* Main.storyboard in Resources */,
+				F5B256562B8E18B700324D3F /* Ubuntu-Light.ttf in Resources */,
+				F5B2565B2B8E18B700324D3F /* Ubuntu-Medium.ttf in Resources */,
+				F5B256552B8E18B700324D3F /* Ubuntu-Italic.ttf in Resources */,
+				F5B2565C2B8E18B700324D3F /* Ubuntu-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +246,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5B256372B8DF70800324D3F /* ViewController.swift in Sources */,
 				F5B256332B8DF70800324D3F /* AppDelegate.swift in Sources */,
+				F5FF3ABB2B8F210300DD2A1D /* PlanViewController.swift in Sources */,
+				F5FFEE7C2B90DE2A00B7B7E7 /* PlanLoadingViewController.swift in Sources */,
+				F51FB0042B90B84800507ED1 /* HabitsViewController.swift in Sources */,
+				F5B2564A2B8E16F400324D3F /* OnboardingViewController.swift in Sources */,
+				F5FF3AC22B8F3D5D00DD2A1D /* TimePickerViewController.swift in Sources */,
 				F5B256352B8DF70800324D3F /* SceneDelegate.swift in Sources */,
+				F52843A52B8F90CF005CC7EF /* GoalsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F5B256382B8DF70800324D3F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5B256392B8DF70800324D3F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F5B2563D2B8DF70A00324D3F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5B2563E2B8DF70A00324D3F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F5B256412B8DF70A00324D3F /* Debug */ = {
@@ -292,11 +386,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TH28H2DHB8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeoHabitForge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -319,11 +413,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TH28H2DHB8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeoHabitForge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,6 +455,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F5B2565E2B8E19D900324D3F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F5FFEE722B90D61300B7B7E7 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5B2565E2B8E19D900324D3F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		F5FFEE742B90D61300B7B7E7 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5B2565E2B8E19D900324D3F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F5B256272B8DF70800324D3F /* Project object */;
 }
