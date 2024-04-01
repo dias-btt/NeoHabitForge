@@ -1,23 +1,20 @@
 //
-//  AddHabitViewController.swift
+//  EditHabitViewController.swift
 //  NeoHabitForge
 //
-//  Created by Диас Сайынов on 13.03.2024.
+//  Created by Диас Сайынов on 30.03.2024.
 //
 
 import UIKit
 import SnapKit
 
-protocol AddHabitDelegate: AnyObject {
-    func didSaveHabit(name: String, selectedDays: [Int], selectedTime: String?, selectedGoal: String, selectedDeadline: Int, reminder: Bool?, selectedIcon: Int?, selectedColor: Int)
-}
-
-class AddHabitViewController: UIViewController, DaysSelectionDelegate, GoalsSelectionDelegate, IconSelectionDelegate, ColorSelectionDelegate, SectionViewDelegate, UITextFieldDelegate {
-    weak var delegate: AddHabitDelegate?
+class EditHabitViewController: UIViewController, DaysSelectionDelegate, GoalsSelectionDelegate, IconSelectionDelegate, ColorSelectionDelegate, SectionViewDelegate, UITextFieldDelegate {
+    
+    var habit: HabitList?
     
     private var deadlineList: [Deadline] = []
-    
     private let nameTextField = CustomTextField(placeholder: "Введите название привычки")
+
     private var selectedTime: String?
     var selectedDays: [String] = []
     var selectedGoal: String = ""
@@ -55,6 +52,16 @@ class AddHabitViewController: UIViewController, DaysSelectionDelegate, GoalsSele
         return button
     }()
     
+    private let deleteButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Удалить", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .red
+        button.layer.cornerRadius = 25
+        button.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var iconSelectionViewController: IconSelectionViewController = {
         let iconSelectionVC = IconSelectionViewController()
         iconSelectionVC.delegate = self
@@ -76,26 +83,41 @@ class AddHabitViewController: UIViewController, DaysSelectionDelegate, GoalsSele
         nameTextField.delegate = self
         updateSaveButtonState()
         fetchDeadlineList()
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "arrow_back"), style: .done, target: self, action: #selector(backButtonTapped))
+        backButton.tintColor = .black
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.title = habit?.name ?? ""
     }
-
+    
+    @objc private func backButtonTapped(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    init(habit: HabitList) {
+        self.habit = habit
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(scrollStackViewContainer)
-        
         scrollStackViewContainer.addArrangedSubview(nameTextField)
         scrollStackViewContainer.addArrangedSubview(daysSection)
-        
         view.addSubview(chooseTimeView)
-                
         let goalsSection = SectionView(title: "Установить цель", subtitle: "Ваша цель", target: self, action: #selector(openGoalsSelection))
         scrollStackViewContainer.addArrangedSubview(goalsSection)
         scrollStackViewContainer.addArrangedSubview(iconsSection)
         scrollStackViewContainer.addArrangedSubview(colorsSection)
         scrollStackViewContainer.addArrangedSubview(notifySection)
         scrollStackViewContainer.addArrangedSubview(saveButton)
+        scrollStackViewContainer.addArrangedSubview(deleteButton)
         scrollStackViewContainer.spacing = 40
     }
-
     
     private func setupConstraints() {
         scrollView.snp.makeConstraints { make in
@@ -107,7 +129,7 @@ class AddHabitViewController: UIViewController, DaysSelectionDelegate, GoalsSele
             make.width.equalTo(scrollView.snp.width)
             make.bottom.equalToSuperview().inset(20)
         }
-
+        
         nameTextField.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
@@ -115,6 +137,11 @@ class AddHabitViewController: UIViewController, DaysSelectionDelegate, GoalsSele
         }
         
         saveButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        
+        deleteButton.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.leading.trailing.equalToSuperview().inset(10)
         }
@@ -258,24 +285,39 @@ class AddHabitViewController: UIViewController, DaysSelectionDelegate, GoalsSele
         } else {
             selectedDay = convertDaysToIntegers(days: selectedDays)
         }
+        guard let accessToken = UserDefaults.standard.string(forKey: "AccessToken") else {
+            print("No access token found")
+            return
+        }
         
         guard let text = nameTextField.text else {
             nameTextField.showWarning(true)
             return
         }
-            
-        delegate?.didSaveHabit(name: text, selectedDays: selectedDay ?? [1], selectedTime: selectedTime, selectedGoal: selectedGoal, selectedDeadline: 1, reminder: notify, selectedIcon: selectedIcon?.id, selectedColor: selectedColor?.id ?? 1)
+
+        let networkManager = NetworkManager()
+        networkManager.updateHabit(accessToken: accessToken, habitID: habit?.id ?? -1, habitName: text, days: selectedDay ?? [1], goal: selectedGoal, deadline: 1, reminder: notify, iconImage: selectedIcon?.id ?? -1, color: selectedColor?.id ?? -1) { result in
+            switch result {
+            case .success:
+                print("Habit updated successfully")
+            case .failure(let error):
+                print("Failed to update habit: \(error)")
+            }
+        }
         navigationController?.popViewController(animated: true)
     }
     
+    @objc private func deleteButtonTapped(){
+        
+    }
+    
     private func updateSaveButtonState() {
-        let isNameFilled = !(nameTextField.text?.isEmpty ?? true)
         let isIconSelected = selectedIcon != nil
         let isColorSelected = selectedColor != nil
         let isGoalSelected = !selectedGoal.isEmpty
         let isTimeSelected = selectedTime != nil
 
-        let isEnabled = isNameFilled && isIconSelected && isColorSelected && isGoalSelected && isTimeSelected
+        let isEnabled = isIconSelected && isColorSelected && isGoalSelected && isTimeSelected
 
         saveButton.isEnabled = isEnabled
         saveButton.backgroundColor = isEnabled ? UIColor(named: "SecondaryColor") : UIColor(red: 0.44, green: 0.89, blue: 0.55, alpha: 1.00)
@@ -304,7 +346,7 @@ class AddHabitViewController: UIViewController, DaysSelectionDelegate, GoalsSele
                 guard let self = self else { return }
                 if time == "В любое время" {
                     let timePickerVC = TimePickerViewController()
-                    timePickerVC.delegate = self
+                    //timePickerVC.delegate = self
                     timePickerVC.selectedTime = self.selectedTime
                     self.present(timePickerVC, animated: true, completion: nil)
                 } else {
@@ -337,22 +379,15 @@ class AddHabitViewController: UIViewController, DaysSelectionDelegate, GoalsSele
     }
 }
 
-extension AddHabitViewController: UIViewControllerTransitioningDelegate {
+extension EditHabitViewController: UIViewControllerTransitioningDelegate {
 
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         if presented is IconSelectionViewController {
             return IconSelectionPresentationController(presentedViewController: presented, presenting: presenting)
-        } else if presented is ColorSelectionViewController{
+        } else if presented is ColorSelectionViewController {
             return ColorSelectionPresentationController(presentedViewController: presented, presenting: presenting)
         } else {
             return HalfScreenPresentationController(presentedViewController: presented, presenting: presenting)
         }
-    }
-}
-
-extension AddHabitViewController: TimePickerViewControllerDelegate {
-        func nextPageRequested(selectedTime: String) {
-            self.selectedTime = selectedTime
-            dismiss(animated: true, completion: nil)
     }
 }

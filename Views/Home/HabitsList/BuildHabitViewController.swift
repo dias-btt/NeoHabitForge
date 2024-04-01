@@ -9,11 +9,16 @@ import UIKit
 import SnapKit
 import Foundation
 
+protocol BuildHabitDelegate: AnyObject {
+    func didUpdateHabits(_ habits: [HabitCreateResponse])
+}
+
 class BuildHabitViewController: UIViewController, AddHabitDelegate{
     
     var networkManager = NetworkManager()
-    
-    var habits: [HabitCreateResponse]?
+    weak var delegate: BuildHabitDelegate?
+
+    var habits: [HabitCreateResponse] = []
     var existingHabits: [ExistingHabit] = []
 
     var updateCollectionView: (() -> Void) = {}
@@ -140,7 +145,8 @@ class BuildHabitViewController: UIViewController, AddHabitDelegate{
         ) { result in
             switch result {
             case .success(let habit):
-                self.habits?.append(habit)
+                self.habits.append(habit)
+                self.delegate?.didUpdateHabits(self.habits)
                 DispatchQueue.main.async{
                     self.collectionView.reloadData()
                 }

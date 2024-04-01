@@ -58,12 +58,15 @@ class TimePickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        setupUI()
+        setupConstraints()
+    }
+    
+    private func setupUI(){
         view.addSubview(titleLabel)
         view.addSubview(subTitleLabel)
         view.addSubview(datePicker)
         view.addSubview(nextButton)
-        
         if let selectedTime = selectedTime {
             let timeComponents = selectedTime.components(separatedBy: ":")
             if timeComponents.count == 2, let hour = Int(timeComponents[0]), let minute = Int(timeComponents[1]) {
@@ -72,6 +75,11 @@ class TimePickerViewController: UIViewController {
             }
         }
         
+        datePicker.delegate = self
+        datePicker.dataSource = self
+    }
+    
+    private func setupConstraints(){
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(80)
             make.centerX.equalToSuperview()
@@ -94,9 +102,6 @@ class TimePickerViewController: UIViewController {
             make.width.equalTo(400)
             make.height.equalTo(50)
         }
-        
-        datePicker.delegate = self
-        datePicker.dataSource = self
     }
     
     @objc func nextButtonTapped() {
@@ -106,7 +111,7 @@ class TimePickerViewController: UIViewController {
 
 extension TimePickerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 2 // Hour and minute components
+        return 2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -119,7 +124,7 @@ extension TimePickerViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 80 // Adjust the width of components (hours and minutes)
+        return 80
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -129,6 +134,5 @@ extension TimePickerViewController: UIPickerViewDelegate, UIPickerViewDataSource
         let minuteString = String(format: "%02d", selectedMinute)
         self.selectedTime = "\(hourString):\(minuteString)"
     }
-
 }
 

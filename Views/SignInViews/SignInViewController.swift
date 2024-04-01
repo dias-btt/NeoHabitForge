@@ -164,7 +164,6 @@ class SignInViewController: UIViewController {
     @objc private func signInButtonTapped() {
         guard let phone = phoneNumberTextField.text, !phone.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
-            // Handle empty fields
             return
         }
 
@@ -181,21 +180,19 @@ class SignInViewController: UIViewController {
                     self.navigateToHomeViewController()
                 case .failure(let error):
                     self.showAlert(withMessage: "Неправильный пароль или Аккаунт не существует")
-                    print("Error logging in user: \(error)")
                 }
             }
         }
     }
 
-    
     private func loadRememberMeState() {
         let rememberMeState = UserDefaults.standard.bool(forKey: rememberMeKey)
         rememberMeCheckboxButton.isSelected = rememberMeState
     }
         
     @objc private func rememberMeCheckboxTapped() {
-        rememberMeCheckboxButton.isSelected.toggle() // Toggle checkbox state
-        UserDefaults.standard.set(rememberMeCheckboxButton.isSelected, forKey: rememberMeKey) // Save state in UserDefaults
+        rememberMeCheckboxButton.isSelected.toggle()
+        UserDefaults.standard.set(rememberMeCheckboxButton.isSelected, forKey: rememberMeKey)
     }
     
     private func navigateToHomeViewController() {

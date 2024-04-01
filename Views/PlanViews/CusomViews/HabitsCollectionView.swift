@@ -42,7 +42,6 @@ extension HabitsCollectionView: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HabitCardCell", for: indexPath) as! HabitCardCell
         let habit = habits[indexPath.item]
-        //cell.iconImageView.image = habit.icon
         cell.titleLabel.text = habit.name
         return cell
     }

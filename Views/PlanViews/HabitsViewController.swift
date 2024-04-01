@@ -54,7 +54,7 @@ class HabitsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        setupViews()
+        setupUI()
         setupConstraints()
         
         let habit1 = ExistingHabit(id: 1, name: "Ходьба", image: "image 2")
@@ -90,7 +90,7 @@ class HabitsViewController: UIViewController {
         }
     }
     
-    private func setupViews() {
+    private func setupUI() {
         view.addSubview(titleLabel)
         view.addSubview(collectionView)
         view.addSubview(nextButton)

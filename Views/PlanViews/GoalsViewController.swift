@@ -75,7 +75,7 @@ class GoalsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        setupViews()
+        setupUI()
         setupConstraints()
     }
     
@@ -108,7 +108,7 @@ class GoalsViewController: UIViewController {
         }
     }
     
-    private func setupViews() {
+    private func setupUI() {
         view.addSubview(titleLabel)
         view.addSubview(subTitleLabel)
         view.addSubview(collectionView)

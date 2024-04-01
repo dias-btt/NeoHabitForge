@@ -86,7 +86,6 @@ class PlanLoadingViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: duration / 100, repeats: true) { timer in
             guard percentage < 100 else {
                 timer.invalidate()
-                // Navigate to RegistrationViewController
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.navigateToRegistration()
                 }

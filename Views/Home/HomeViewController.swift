@@ -6,7 +6,7 @@ protocol HomeViewControllerDelegate: AnyObject {
     func didSelectDate(_ date: Date)
 }
 
-class HomeViewController: UIViewController, ResultCellDelegate {
+class HomeViewController: UIViewController, ResultCellDelegate, BuildHabitDelegate {
     
     weak var delegate: HomeViewControllerDelegate?
     
@@ -20,6 +20,7 @@ class HomeViewController: UIViewController, ResultCellDelegate {
         let iconSelectionVC = CongratulationsViewController()
         return iconSelectionVC
     }()
+    
     private var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -191,7 +192,6 @@ class HomeViewController: UIViewController, ResultCellDelegate {
             switch result {
             case .success(let fetchedHabits):
                 self.uiHabits = fetchedHabits
-                print("fetched habits for \(dayAbbreviation) are \(fetchedHabits)")
                 DispatchQueue.main.async {
                     self.resultsCollectionView.reloadData()
                 }
@@ -203,7 +203,6 @@ class HomeViewController: UIViewController, ResultCellDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //fetchHabits(for: Date())
         resultsCollectionView.reloadData()
     }
     
@@ -315,7 +314,7 @@ class HomeViewController: UIViewController, ResultCellDelegate {
         buildHabitViewController.updateCollectionView = { [weak self] in
             self?.resultsCollectionView.reloadData()
         }
-        
+        buildHabitViewController.delegate = self
         buildHabitViewController.navigationItem.title = "Создать новую привычку"
         let titleAttributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.boldSystemFont(ofSize: 20),
@@ -346,6 +345,11 @@ class HomeViewController: UIViewController, ResultCellDelegate {
     func mapToExistingHabtis(_ habits: [HabitList]) -> [ExistingHabit]{
         return habits.map {ExistingHabit(id: $0.id, name: $0.name, image: "") }
     }
+    
+    func didUpdateHabits(_ habits: [HabitCreateResponse]) {
+        self.habits = habits
+        print("my habits are \(self.habits)")
+    }
 }
 
 extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource {
@@ -354,7 +358,6 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource {
         DispatchQueue.main.async{
             self.fetchHabits(for: self.selectedDate ?? Date())
         }
-        print("fetched habits are \(self.uiHabits)")
         if self.uiHabits.isEmpty {
             noHabitsImage.isHidden = false
             noHabitsLabel.isHidden = false
@@ -400,6 +403,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 95)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedHabit = uiHabits[indexPath.item]
+        let editHabitVC = EditHabitViewController(habit: selectedHabit)
+        
+        navigationController?.pushViewController(editHabitVC, animated: true)
     }
 }
 

@@ -117,7 +117,6 @@ class ResultCell: UICollectionViewCell {
                     completion(nil)
                 }
             case .failure(let error):
-                print("Failed to fetch icon list: \(error)")
                 completion(nil)
             }
         }

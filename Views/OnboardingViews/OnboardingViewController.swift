@@ -101,11 +101,11 @@ class OnboardingViewController: UIViewController {
                 if currentPageIndex == 0 {
                     pageIndicatorStackView.isHidden = false
                     nextButton.isHidden = true
-                    indicatorView.backgroundColor = (index == 0) ? .green : .gray
+                    indicatorView.backgroundColor = (index == 0) ? UIColor(named: "SecondaryColor") : .gray
                 } else if currentPageIndex == 1 {
                     pageIndicatorStackView.isHidden = false
                     nextButton.isHidden = true
-                    indicatorView.backgroundColor = (index <= 1) ? .green : .gray
+                    indicatorView.backgroundColor = (index <= 1) ? UIColor(named: "SecondaryColor") : .gray
                 } else {
                     nextButton.isHidden = false
                     pageIndicatorStackView.isHidden = true
@@ -140,7 +140,7 @@ extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView.frame.width != 0 else {
-            return // Avoid division by zero
+            return
         }
 
         let pageIndex = max(min(Int(round(scrollView.contentOffset.x / scrollView.frame.width)), pages.count - 1), 0)
@@ -212,5 +212,3 @@ class OnboardingCell: UICollectionViewCell {
         regularTextLabel.text = regularText
     }
 }
-
-
